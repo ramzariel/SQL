@@ -1,0 +1,37 @@
+--Create a store database
+
+CREATE TABLE pencils (id INTEGER PRIMARY KEY, brand TEXT, hardness TEXT, usage TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO pencils VALUES
+(1, "Tombow MONO100", "5B", "drafting", 2.50, 36),
+(2, "Kitaboshi", "HB", "office", 1.50, 65),
+(3, "Staedtler Mars Lumograph", "HB", "art", 3.00, 57),
+(4, "Mitsubishi 9850", "HB", "office", 1.68, 64),
+(5, "Blackwing 602", "2B", "academic", 2.10, 50),
+(6, "Calepino", "HB", "writing", 1.34, 28),
+(7, "Caran d’Ache", "HB", "art", 6.11, 40),
+(8, "General's Test Scoring 580", "HB", "testing", 2.10, 31),
+(9, "Tombow 2558", "B", "writing", 2.50, 47),
+(10, "General's G314", "6B", "drafting", 3.74, 34),
+(11, "Lyra Robinson", "B", "academic", 0.99, 55),
+(12, "Musgrave Sidekick", "HB", "woodworking", 1.99, 26),
+(13, "Kitaboshi 9606", "HB", "academic", 2.15, 49),
+(14, "Viking Element 2", "HB", "testing", 2.00, 30),
+(15, "Faber-Castell 9000", "H", "art", 4.61, 23);
+
+--display the database ordered by price.
+SELECT * FROM pencils
+ORDER BY price;
+
+--what is the average price of HB pencils in the store?
+
+SELECT AVG(price) "Avg HB Pencil Price"
+FROM pencils
+WHERE hardness='HB';
+
+--what are the 5 most popular items?
+
+SELECT brand, price, popularity
+FROM pencils
+ORDER BY popularity desc
+LIMIT 5;
