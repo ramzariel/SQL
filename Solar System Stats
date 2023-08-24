@@ -54,24 +54,24 @@ INSERT INTO solar_system_objects(body,mean_radius,mean_radius_rel,volume,volume_
 INSERT INTO solar_system_objects(body,mean_radius,mean_radius_rel,volume,volume_rel,mass,mass_rel,density,surface_gravity,surface_gravity_rel,type_of_object,shape) VALUES ('Ceres ',476.2,0.076,0.437,0.0004,0.95,0.000159,2.077,0.27,0.0275,'dwarf planet belt asteroid','round');
 
 --what is the avg density?
-SELECT AVG(density) as avg_density
+SELECT AVG(density) AS avg_density
 FROM solar_system_objects;
 
 --what is the max volume?
-SELECT MAX(volume) as max_volume, body
+SELECT MAX(volume) AS max_volume, body
 FROM solar_system_objects;
 
 --what is the min volume?
-SELECT MIN(volume) as min_volume, body
+SELECT MIN(volume) AS min_volume, body
 FROM solar_system_objects;
 
 --what is the biggest planet?
-SELECT body as biggest_planet, MAX(mean_radius) as radius
+SELECT body AS biggest_planet, MAX(mean_radius) AS radius
 FROM solar_system_objects
 WHERE type_of_object LIKE "%planet%";
 
 --what is the smallest planet?
-SELECT body as smallest_planet, MIN(mean_radius) as radius
+SELECT body AS smallest_planet, MIN(mean_radius) AS radius
 FROM solar_system_objects
 WHERE type_of_object LIKE "%planet%";
 
