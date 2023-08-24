@@ -76,14 +76,14 @@ FROM solar_system_objects
 WHERE type_of_object LIKE "%planet%";
 
 --which planets have more than 4 moons?
-SELECT type_of_object AS 'most_moons'
+SELECT type_of_object AS most_moons
 FROM solar_system_objects
 WHERE type_of_object LIKE "%satellite%"
 GROUP BY type_of_object
 HAVING COUNT(*) > 4;
 
 --which planetary gravitational forces can a human survive?
-SELECT body AS "planet",
+SELECT body AS planet,
 CASE
     WHEN surface_gravity_rel < (0.2*0.99732) THEN "gravity low"
     WHEN surface_gravity_rel > (4.5*0.99732) THEN "gravity high"
@@ -94,7 +94,7 @@ FROM solar_system_objects
 WHERE type_of_object LIKE "%planet%";
 
 --what is the number of each type of environment?
-SELECT COUNT(*) as num_planet,
+SELECT COUNT(*) AS num_planet,
 CASE
     WHEN surface_gravity_rel < (0.2*0.99732) THEN "gravity low"
     WHEN surface_gravity_rel > (4.5*0.99732) THEN "gravity high"
@@ -106,7 +106,7 @@ WHERE type_of_object LIKE "%planet%"
 GROUP BY "habitability";
 
 --which moons are more massive than earth's moon?
-SELECT body AS "moons", mass
+SELECT body AS moons, mass
 FROM solar_system_objects
 WHERE type_of_object LIKE "%satellite%" AND mass > (SELECT mass FROM solar_system_objects WHERE body = "Moon")
 ORDER BY mass ASC;
